@@ -1,0 +1,20 @@
+!!! XML
+!!!
+%html{:'xml:lang' => 'ja', :lang => 'ja'}
+  %head
+    %meta{:name => 'description', :content => ''}
+    %meta{:name => 'keywords', :content => ''}
+    %meta{'http-equiv' => 'Content-Type', 'content' => 'text/html; charset=utf-8'}
+    %meta{'http-equiv' => 'Content-Style-Type', 'content' => 'text/css'}
+    %meta{'http-equiv' => 'Content-Script-Type', 'content' => 'text/javascript'}
+    %title= 'Hamcutlet'
+    %link{:href => 'style.css', :rel => 'stylesheet', :type => 'text/css'}
+    %link{:rel => 'shortcut icon', :href => '/favicon.ico'}
+  %body
+    #header
+      %h1 <a href="/">Ham Cutlet</a>
+      %h2 HTMLのインデントを綺麗にするサービス
+    = yield
+    #footer
+      %p.copyright
+        Copyright &copy; <a href="http://fjord.jp">FJORD, LLC</a> Created by <a href="http://twitter.com/machida">@machida</a> and <a href="http://twitter.com/komagata">@komagata</a>

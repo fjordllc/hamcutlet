@@ -1,0 +1,7 @@
+= Ham Cutlet
+
+== INSTALLATION
+
+  % sudo gem install bundler
+  % bundle install
+  % shotgun

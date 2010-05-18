@@ -1,0 +1,23 @@
+#form.section
+  %h2 ああああああああ
+  %form{:action => '/', :method => 'post'}
+    %textarea{:name => 'source', :rows => 4, :cols => 40} ここにHTMLをコピペ
+    .submit
+      %a{:href => '/'} ああああ
+#about.section
+  %h2 hum cutletの使い方
+  .main
+    %ol
+      %li
+        %a{:href => '#form'}> ここにHTMLをコピペします。
+      %li コピペしたら「COOK!」をクリック。
+      %li インデントが綺麗になったHTMLをゲット！
+#made_with.section
+  %h2 Ham CutletはHamlを使っています
+  %ul
+    %li
+      %a{:href => ''}
+        %img{:alt => 'Haml', :src => 'images/haml_banner.gif'}/
+    %li
+      %a{:href => ''}
+        %img{:alt => 'Haml', :src => 'images/nichi_haml_banner.gif'}/
