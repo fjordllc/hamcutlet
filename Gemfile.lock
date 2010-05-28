@@ -8,14 +8,20 @@ dependencies:
     group: 
     - :default
     version: = 1.0.0
+  hpricot: 
+    group: 
+    - :default
+    version: = 0.8.2
 specs: 
 - haml: 
     version: 3.0.6
+- hpricot: 
+    version: 0.8.2
 - rack: 
     version: 1.1.0
 - sinatra: 
     version: "1.0"
-hash: edc08d32bb44826e22cc46e450e689c9754794cd
+hash: 207187e3f7d580d8f8523865e84fa27dfcf5a843
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org
