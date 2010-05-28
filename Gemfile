@@ -1,3 +1,3 @@
 source :gemcutter
 gem 'sinatra'
-gem 'haml'
+gem 'haml', '3.0.6'

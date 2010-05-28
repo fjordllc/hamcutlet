@@ -1,9 +1,6 @@
 require 'rubygems'
-#require 'bundler'
-#Bundler.require
-require 'rubygems'
-require 'sinatra'
-require 'haml'
+require 'bundler'
+Bundler.setup
 
 require 'app'
 use Rack::Static, :urls => ["/images"], :root => "public"
