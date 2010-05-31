@@ -1,10 +1,11 @@
 require 'sinatra'
-require 'tempfile'
-require 'tmpdir'
+require 'rack-flash'
 require 'haml/html'
 
 class App < Sinatra::Base
   configure do
+    use Rack::Session::Cookie
+    use Rack::Flash
     use Rack::Static, :urls => ['/images'], :root => 'public'
     set :app_file, __FILE__
     set :haml, {:attr_wrapper => '"', :ugly => false}
@@ -26,8 +27,16 @@ class App < Sinatra::Base
     params[:source].gsub!(/<!-.*?-->/m, "") # strip comment
     params[:source].gsub!(/\t/, '    ')
 
-    @haml = Haml::HTML.new(params[:source]).render
-    @html = Haml::Engine.new(@haml, :attr_wrapper => '"').render
+    begin
+      @haml = Haml::HTML.new(params[:source]).render
+      @html = Haml::Engine.new(@haml, :attr_wrapper => '"').render
+    rescue Haml::SyntaxError => e
+      case e.message
+      when 'Invalid doctype'
+        flash[:error] = 'DOCTYPEが不正です。'
+      end
+    end
+
     haml :created
   end
 

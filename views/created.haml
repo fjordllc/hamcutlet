@@ -1,4 +1,9 @@
 #created.section
-  %h2 インデントの美しいHTMLが出来ました
-  %pre
-    %code=h @html
+  - if flash[:error]
+    .error
+      %h2 HTMLに下記の問題があります。
+      %p= flash[:error]
+  - else
+    %h2 インデントの美しいHTMLが出来ました
+    %pre
+      %code=h @html

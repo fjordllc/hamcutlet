@@ -4,6 +4,10 @@ dependencies:
     group: 
     - :default
     version: = 3.0.6
+  rack-flash: 
+    group: 
+    - :default
+    version: = 0.1.1
   sinatra: 
     group: 
     - :default
@@ -19,9 +23,11 @@ specs:
     version: 0.8.2
 - rack: 
     version: 1.1.0
+- rack-flash: 
+    version: 0.1.1
 - sinatra: 
     version: "1.0"
-hash: f0576371bb3bd3cbfd38f9e105041063189b641a
+hash: b7d8e0360069840fc0d970b2eef4abef16877c97
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org
