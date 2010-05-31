@@ -9,5 +9,4 @@ rescue LoadError
 end
 
 require 'app'
-use Rack::Static, :urls => ['/images'], :root => 'public'
 run App

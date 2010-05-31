@@ -4,7 +4,12 @@ require 'tmpdir'
 require 'haml/html'
 
 class App < Sinatra::Base
-  set :app_file, __FILE__
+  configure do
+    use Rack::Static, :urls => ['/images'], :root => 'public'
+    set :app_file, __FILE__
+    set :haml, {:attr_wrapper => '"', :ugly => false}
+    set :sass, {:style => :expanded}
+  end
 
   helpers do
     alias h escape_html
@@ -18,8 +23,9 @@ class App < Sinatra::Base
     params[:source].gsub!(/\r\n/, "\n")
     params[:source].gsub!(/\r/, "\n")
     params[:source].gsub!(/\n\n/m, "\n")
-    params[:source].gsub!(/<!-.*?-->/m, "")
+    params[:source].gsub!(/<!-.*?-->/m, "") # strip comment
     params[:source].gsub!(/\t/, '    ')
+
     @haml = Haml::HTML.new(params[:source]).render
     @html = Haml::Engine.new(@haml, :attr_wrapper => '"').render
     haml :created

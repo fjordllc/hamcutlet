@@ -1,9 +1,9 @@
 #form.section
   %h2 ここにインデントを綺麗に揃えたいHTMLをコピペ
-  %form{:name => 'form', :action => '/', :method => 'post'}
-    %textarea{:name => 'source', :rows => 4, :cols => 40} ここにHTMLをコピペ
+  %form{:name => 'pan', :id => 'pan', :action => '/', :method => 'post'}
+    %textarea{:name => 'source', :rows => 4, :cols => 40} &lt;p&gt;ここにHTMLをコピペ&lt;/p&gt;
     .submit
-      %a{:href => 'javascript:return void(0)', :onclick => "$('form').submit()"} COOK!
+      %a{:href => 'javascript:return void(0)', :onclick => "$('#pan').submit()"} COOK!
 #about.section
   %h2 hum cutletの使い方
   .main
