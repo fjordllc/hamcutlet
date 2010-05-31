@@ -15,7 +15,6 @@ class App < Sinatra::Base
   end
 
   post '/' do
-    open('first.html', 'w') {|f| f.write(params[:source]) }
     params[:source].gsub!(/\r\n/, "\n")
     params[:source].gsub!(/\r/, "\n")
     params[:source].gsub!(/\n\n/m, "\n")
