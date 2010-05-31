@@ -1,3 +1,4 @@
+require 'sinatra'
 require 'tempfile'
 require 'tmpdir'
 require 'haml/html'
@@ -14,13 +15,14 @@ class App < Sinatra::Base
   end
 
   post '/' do
-#    time = Time.now.to_f
-#    Tempfile.open(time) do |f|
-#      f.write params[:source]
-#    end
-#    Dir.tmpdir
+    open('first.html', 'w') {|f| f.write(params[:source]) }
+    params[:source].gsub!(/\r\n/, "\n")
+    params[:source].gsub!(/\r/, "\n")
+    params[:source].gsub!(/\n\n/m, "\n")
+    params[:source].gsub!(/<!-.*?-->/m, "")
+    params[:source].gsub!(/\t/, '    ')
     @haml = Haml::HTML.new(params[:source]).render
-    @html = Haml::Engine.new(@haml).render
+    @html = Haml::Engine.new(@haml, :attr_wrapper => '"').render
     haml :created
   end
 

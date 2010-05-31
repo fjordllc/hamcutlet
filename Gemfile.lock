@@ -21,7 +21,7 @@ specs:
     version: 1.1.0
 - sinatra: 
     version: "1.0"
-hash: 207187e3f7d580d8f8523865e84fa27dfcf5a843
+hash: f0576371bb3bd3cbfd38f9e105041063189b641a
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org
