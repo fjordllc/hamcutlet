@@ -111,6 +111,7 @@ table
   font-size: 100%
 
 a
+  overflow: hidden
   &:link, &:visited
     color: #01165d
   &:hover, &:active
@@ -197,6 +198,7 @@ div
         margin-left: auto
         background-image: url(/images/submit_button.jpg)
         text-indent: -9999px
+        overflow: hidden
         &:link, &:visited
           background-position: 0px 0px
         &:hover, &:active
@@ -248,20 +250,26 @@ div
     h2
       background-image: url(/images/created_h2.gif)
       height: 20px
-    pre
+    div.source 
       background-color: #FFFFFF
       -webkit-border-radius: 20px
       -moz-border-radius: 20px
       border-radius: 20px
       padding: 20px
       display: block
-      code
-        background-color: #F8F8FF
-        background-image: url("/images/pre_code.gif")
+      pre
         display: block
-        font-size: 13px
-        line-height: 20px
-        margin-bottom: 1.4em
+        background-image :url(../images/pre_code.gif)
         padding-left: 27px
-        white-space: pre-wrap
-        word-wrap: break-word
+        background-color: #F8F8FF
+        margin-bottom: 0px
+        padding-bottom: 0px
+        overflow: hidden
+        code
+          display: block
+          font-size: 13px
+          line-height: 20px
+          width: 833px
+          overflow: auto
+          margin-bottom: 0px
+          padding-bottom: 0px
