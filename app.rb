@@ -28,8 +28,8 @@ class App < Sinatra::Base
     params[:source].gsub!(/\t/, '    ')
 
     begin
-      @haml = Haml::HTML.new(params[:source]).render
-      @html = Haml::Engine.new(@haml, :attr_wrapper => '"').render
+      haml = Haml::HTML.new(params[:source]).render
+      @html = Haml::Engine.new(haml, :attr_wrapper => '"').render
     rescue Haml::SyntaxError => e
       case e.message
       when 'Invalid doctype'

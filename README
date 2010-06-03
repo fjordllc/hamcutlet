@@ -2,6 +2,8 @@
 
 == INSTALLATION
 
-  % sudo gem install bundler
-  % bundle install
-  % shotgun
+    % gem install bundler
+    % bundle install
+    % rackup
+
+Access to http://localhost:9292/
