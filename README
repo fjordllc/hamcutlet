@@ -2,8 +2,8 @@
 
 == INSTALLATION
 
-  % gem install bundler
-  % bundle install
-  % rackup
+    % gem install bundler
+    % bundle install
+    % rackup
 
 Access to http://localhost:9292/

@@ -1,2 +1,3 @@
 .bundle
 relock
+log/*.log

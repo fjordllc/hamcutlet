@@ -4,30 +4,42 @@ dependencies:
     group: 
     - :default
     version: = 3.0.6
-  rack-flash: 
+  exceptional: 
     group: 
     - :default
-    version: = 0.1.1
+    version: = 2.0.15
   sinatra: 
     group: 
     - :default
     version: = 1.0.0
+  json: 
+    group: 
+    - :default
+    version: = 1.4.3
+  rack-flash: 
+    group: 
+    - :default
+    version: = 0.1.1
   hpricot: 
     group: 
     - :default
     version: = 0.8.2
 specs: 
+- exceptional: 
+    version: 2.0.15
 - haml: 
     version: 3.0.6
 - hpricot: 
     version: 0.8.2
+- json: 
+    version: 1.4.3
 - rack: 
     version: 1.1.0
 - rack-flash: 
     version: 0.1.1
 - sinatra: 
     version: "1.0"
-hash: b7d8e0360069840fc0d970b2eef4abef16877c97
+hash: 085c447bd470a91bd172ce1775f5568289d479c7
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org
