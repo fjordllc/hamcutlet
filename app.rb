@@ -25,6 +25,7 @@ class App < Sinatra::Base
   end
 
   get '/' do
+    content_type 'text/plain', :charset => 'utf-8'
     if params[:url]
       begin
         hamldoc = Haml::HTML.new(NKF.nkf('-w', open(params[:url]){ |f| f.read.gsub(/\t/, '    ') })).render
