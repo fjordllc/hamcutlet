@@ -33,9 +33,9 @@ class App < Sinatra::Base
       rescue Haml::SyntaxError => e
         case e.message
         when 'Invalid doctype'
-          flash[:error] = 'DOCTYPEが不正です。'
+          halt 500, 'DOCTYPEが不正です。'
         else
-          flash[:error] = e.message
+          halt 500, e.message
         end
       end
 
