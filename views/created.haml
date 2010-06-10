@@ -8,6 +8,27 @@
 
   - else
     %h2 インデントの美しいHTMLが出来ました
+    %button.raw plane text
     .source
+      %textarea{:style => 'display:none;'}
+        =h @html
       %pre
         %code=h @html
+:javascript
+  $(function(){
+    
+    $('.source textarea').height($('.source pre').height());
+    
+    $('button.raw').click(function(){
+      if ($('.source textarea').css('display') == 'none') {
+        $('button.raw').text('html')
+        $('.source textarea').fadeIn();
+        $('.source pre').hide();
+        $('.source textarea').focus().select();
+      } else {
+        $('button.raw').text('plane text')
+        $('.source textarea').hide();
+        $('.source pre').fadeIn();
+      }
+    });
+  });
