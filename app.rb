@@ -31,6 +31,7 @@ class App < Sinatra::Base
 
   get '/' do
     content_type 'text/plain', :charset => 'utf-8'
+    
     if params[:url]
       begin
         source = NKF.nkf('-w', expand_tab( open(params[:url]){ |f| f.read } ) )
