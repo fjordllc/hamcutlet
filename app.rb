@@ -22,13 +22,19 @@ class App < Sinatra::Base
 
   helpers do
     alias h escape_html
+
+    def expand_tab(source)
+      tabstop = '    '
+      source.gsub(/\t/, tabstop)
+    end
   end
 
   get '/' do
     content_type 'text/plain', :charset => 'utf-8'
     if params[:url]
       begin
-        hamldoc = Haml::HTML.new(NKF.nkf('-w', open(params[:url]){ |f| f.read.gsub(/\t/, '    ') })).render
+        source = NKF.nkf('-w', expand_tab( open(params[:url]){ |f| f.read } ) )
+        hamldoc = Haml::HTML.new(source).render
         @html = Haml::Engine.new(hamldoc, :attr_wrapper => '"').render
       rescue Haml::SyntaxError => e
         case e.message
@@ -46,10 +52,9 @@ class App < Sinatra::Base
   end
 
   post '/' do
-    params[:source].gsub!(/\t/, '    ') # expand tab
-
     begin
-      hamldoc = Haml::HTML.new(params[:source]).render
+      source = expand_tab(params[:source])
+      hamldoc = Haml::HTML.new(source).render
       @html = Haml::Engine.new(hamldoc, :attr_wrapper => '"').render
     rescue Haml::SyntaxError => e
       case e.message
