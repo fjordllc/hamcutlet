@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
 require 'sinatra'
 require 'rack-flash'
 require 'haml/html'
 require 'exceptional'
 require 'haml_ext'
+require 'open-uri'
+require 'nkf'
 
 class App < Sinatra::Base
   configure do
@@ -21,7 +24,23 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    haml :index
+    if params[:url]
+      begin
+        hamldoc = Haml::HTML.new(NKF.nkf('-w', open(params[:url]){ |f| f.read.gsub(/\t/, '    ') })).render
+        @html = Haml::Engine.new(hamldoc, :attr_wrapper => '"').render
+      rescue Haml::SyntaxError => e
+        case e.message
+        when 'Invalid doctype'
+          flash[:error] = 'DOCTYPEが不正です。'
+        else
+          flash[:error] = e.message
+        end
+      end
+
+      haml :created
+    else
+      haml :index
+    end
   end
 
   post '/' do
