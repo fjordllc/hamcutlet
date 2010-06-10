@@ -4,6 +4,7 @@ require 'rack-flash'
 require 'haml/html'
 require 'exceptional'
 require 'haml_ext'
+require 'erb'
 require 'open-uri'
 require 'nkf'
 
@@ -37,7 +38,7 @@ class App < Sinatra::Base
         end
       end
 
-      haml :created, :layout => false
+      erb :created, :layout => false
     else
       haml :index
     end
