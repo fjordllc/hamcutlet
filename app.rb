@@ -37,7 +37,7 @@ class App < Sinatra::Base
         end
       end
 
-      haml :created
+      haml :created, :layout => false
     else
       haml :index
     end
