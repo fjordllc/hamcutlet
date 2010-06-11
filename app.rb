@@ -30,9 +30,8 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    content_type 'text/plain', :charset => 'utf-8'
-    
     if params[:url]
+      content_type 'text/plain', :charset => 'utf-8'
       begin
         source = NKF.nkf('-w', expand_tab( open(params[:url]){ |f| f.read } ) )
         hamldoc = Haml::HTML.new(source).render
