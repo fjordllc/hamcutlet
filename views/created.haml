@@ -8,8 +8,7 @@
     %h2 インデントの美しいHTMLが出来ました
     %button.raw plane text
     .source
-      %textarea{:style => 'display:none'}
-        =h @html
+      %textarea{:style => 'display:none'}~h @html
       %pre
         %code=h @html
 :javascript
