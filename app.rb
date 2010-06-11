@@ -4,7 +4,6 @@ require 'rack-flash'
 require 'haml/html'
 require 'exceptional'
 require 'haml_ext'
-require 'erb'
 require 'open-uri'
 require 'nkf'
 
@@ -22,20 +21,14 @@ class App < Sinatra::Base
 
   helpers do
     alias h escape_html
-
-    def expand_tab(source)
-      tabstop = '    '
-      source.gsub(/\t/, tabstop)
-    end
   end
 
   get '/' do
     if params[:url]
       content_type 'text/plain', :charset => 'utf-8'
       begin
-        source = NKF.nkf('-w', expand_tab( open(params[:url]){ |f| f.read } ) )
-        hamldoc = Haml::HTML.new(source).render
-        @html = Haml::Engine.new(hamldoc, :attr_wrapper => '"').render
+        source = NKF.nkf('-w', open(params[:url]){|f| f.read })
+        html2haml(source)
       rescue Haml::SyntaxError => e
         case e.message
         when 'Invalid doctype'
@@ -44,8 +37,6 @@ class App < Sinatra::Base
           halt 500, e.message
         end
       end
-
-      erb :created, :layout => false
     else
       haml :index
     end
@@ -53,9 +44,7 @@ class App < Sinatra::Base
 
   post '/' do
     begin
-      source = expand_tab(params[:source])
-      hamldoc = Haml::HTML.new(source).render
-      @html = Haml::Engine.new(hamldoc, :attr_wrapper => '"').render
+      @html = html2haml(params[:source])
     rescue Haml::SyntaxError => e
       case e.message
       when 'Invalid doctype'
@@ -73,8 +62,9 @@ class App < Sinatra::Base
     sass path.to_sym, :sass => {:load_paths => [options.views]}
   end
 
-  get '/*' do |path|
-    pass unless File.exist?(File.join(options.views, "#{path}.haml"))
-    haml path.to_sym
+  private
+  def html2haml(html)
+    haml = Haml::HTML.new(html.gsub(/\t/, '    ')).render
+    Haml::Engine.new(haml, :attr_wrapper => '"').render
   end
 end
