@@ -1,8 +1,12 @@
+# -*- coding: utf-8 -*-
 require 'sinatra'
 require 'rack-flash'
 require 'haml/html'
 require 'exceptional'
 require 'haml_ext'
+require 'erb'
+require 'open-uri'
+require 'nkf'
 
 class App < Sinatra::Base
   configure do
@@ -18,17 +22,40 @@ class App < Sinatra::Base
 
   helpers do
     alias h escape_html
+
+    def expand_tab(source)
+      tabstop = '    '
+      source.gsub(/\t/, tabstop)
+    end
   end
 
   get '/' do
-    haml :index
+    content_type 'text/plain', :charset => 'utf-8'
+    
+    if params[:url]
+      begin
+        source = NKF.nkf('-w', expand_tab( open(params[:url]){ |f| f.read } ) )
+        hamldoc = Haml::HTML.new(source).render
+        @html = Haml::Engine.new(hamldoc, :attr_wrapper => '"').render
+      rescue Haml::SyntaxError => e
+        case e.message
+        when 'Invalid doctype'
+          halt 500, 'DOCTYPEが不正です。'
+        else
+          halt 500, e.message
+        end
+      end
+
+      erb :created, :layout => false
+    else
+      haml :index
+    end
   end
 
   post '/' do
-    params[:source].gsub!(/\t/, '    ') # expand tab
-
     begin
-      hamldoc = Haml::HTML.new(params[:source]).render
+      source = expand_tab(params[:source])
+      hamldoc = Haml::HTML.new(source).render
       @html = Haml::Engine.new(hamldoc, :attr_wrapper => '"').render
     rescue Haml::SyntaxError => e
       case e.message
