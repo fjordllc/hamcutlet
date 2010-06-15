@@ -1,7 +1,7 @@
 #form.section
   %h2 ここにインデントを綺麗に揃えたいHTMLをコピペ
   %form{:name => 'pan', :id => 'pan', :action => '/', :method => 'post'}
-    %textarea{:name => 'source', :rows => 4, :cols => 40} &lt;p&gt;ここにHTMLをコピペ&lt;/p&gt;
+    %textarea{:name => 'source', :rows => 4, :cols => 40, :title => '&lt;p&gt;ここにHTMLをコピペ&lt;/p&gt;'}
     .submit
       %a{:href => 'javascript:return void(0)', :onclick => "$('#pan').submit()"} COOK!
 #about.section
@@ -35,3 +35,14 @@
       %li
         %a{:href => 'http://github.com/komagata/hamcutlet'}>github
         にもソースが置いてあるので、自分用にハムカツをカスタマイズすることも可能です。
+
+:javascript
+    $(document).ready(function(){
+        $.updnWatermark.attachAll();
+        $('.updnWatermark > label').click(function(){
+            $(this).toggle();
+            $("textarea").select();
+        }).blur(function(){
+            $(this).toggle();
+        });
+    });
