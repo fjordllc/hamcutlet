@@ -12,7 +12,7 @@ class App < Sinatra::Base
     use Rack::Session::Cookie
     use Rack::Flash
     use Rack::Static, :urls => ['/images'], :root => 'public'
-    use Rack::Exceptional, '7a3ee516cdb490dd52d54cb29e10d194fcf48410'
+    use Rack::Exceptional, ENV['EXCEPTIONAL_API_KEY'] || 'key'
     set :app_file, __FILE__
     set :haml, {:attr_wrapper => '"', :ugly => false}
     set :sass, {:style => :expanded}
