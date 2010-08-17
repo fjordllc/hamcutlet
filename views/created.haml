@@ -6,7 +6,10 @@
       .to_top <a href="/">トップページに戻る</a>
   - else
     %h2 インデントの美しいHTMLが出来ました
-    %button.raw plane text
+    %button.raw Plane Text
+    #tweet_button
+      %a{:href => "http://twitter.com/share", :class => "twitter-share-button", :'data-count' => "horizontal", :'data-via' => "komagata", :'data-related' => "machida:Ham Cutletのデザイナー", :'data-lang' => "ja"} Tweet
+      %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
     .source
       %textarea{:style => 'display:none'}~h @html
       %pre
