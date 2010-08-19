@@ -5,6 +5,7 @@ require 'haml/html'
 require 'exceptional'
 require 'haml_ext'
 require 'open-uri'
+require "hpricot"
 require 'nkf'
 
 class App < Sinatra::Base
@@ -64,7 +65,8 @@ class App < Sinatra::Base
 
   private
   def html2haml(html)
+    html5 = (doctype = Hpricot(html).children.detect{ |e| e.doctype? }) ? doctype.public_id.nil? : false
     haml = Haml::HTML.new(html.gsub(/\t/, '    ')).render
-    Haml::Engine.new(haml, :attr_wrapper => '"').render
+    Haml::Engine.new(haml, :attr_wrapper => '"', :format => html5 ? :html5 : :xhtml ).render
   end
 end
