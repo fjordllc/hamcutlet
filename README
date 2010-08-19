@@ -2,7 +2,7 @@
 
 == INSTALLATION
 
-    % gem install bundler
+    % gem install bundler --pre
     % bundle install
     % rackup
 
