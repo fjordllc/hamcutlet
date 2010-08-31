@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 require 'sinatra'
+require 'sinatra/r18n'
 require 'rack-flash'
 require 'haml/html'
 require 'exceptional'
 require 'haml_ext'
 require 'open-uri'
-require "hpricot"
+require 'hpricot'
 require 'nkf'
 
 class App < Sinatra::Base
@@ -18,6 +19,8 @@ class App < Sinatra::Base
     set :haml, {:attr_wrapper => '"', :ugly => false}
     set :sass, {:style => :expanded}
     set :raise_errors, true
+
+    register Sinatra::R18n
   end
 
   helpers do
@@ -45,11 +48,15 @@ class App < Sinatra::Base
 
   post '/' do
     begin
-      @html = html2haml(params[:source])
+      if params[:source].empty?
+        flash[:error] = t.required_html_tags
+      else
+        @html = html2haml(params[:source])
+      end
     rescue Haml::SyntaxError => e
       case e.message
       when 'Invalid doctype'
-        flash[:error] = 'DOCTYPEが不正です。'
+        flash[:error] = t.invalid_doctype
       else
         flash[:error] = e.message
       end
