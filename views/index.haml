@@ -1,19 +1,20 @@
 #form.section
-  %h2 ここにインデントを綺麗に揃えたいHTMLをコピペ
+  %h2= t.paste_your_mess_html_source_here
   %form{:name => 'pan', :id => 'pan', :action => '/', :method => 'post'}
-    %textarea{:name => 'source', :rows => 4, :cols => 40, :title => '&lt;p&gt;ここにHTMLをコピペ&lt;/p&gt;'}
+    %textarea{:name => 'source', :rows => 4, :cols => 40, :title => t.paste_here}
     .submit
       %a{:href => 'javascript:return void(0)', :onclick => "$('#pan').submit()"} COOK!
 #about.section
-  %h2 hum cutletの使い方
+  %h2= t.usage
   .main
     %ol
       %li
-        %a{:href => '#form'}> ここにHTMLをコピペします。
-      %li コピペしたら「COOK!」をクリック。
-      %li インデントが綺麗になったHTMLをゲット！
+        %a{:href => '#form'}>
+          = t.copy_a_html_document_and_paste_it_here
+      %li= t.click_the_cook_tab
+      %li= t.get_a_beautified_html_document
 #made_with.section
-  %h2 Ham CutletはHamlを使っています
+  %h2= t.hamcutlet_is_using_haml
   %ul
     %li
       %a{:href => 'http://haml-lang.com/'}
@@ -22,20 +23,14 @@
       %a{:href => 'http://haml.ursm.jp/'}
         %img{:alt => 'Haml', :src => '/images/nichi_haml_banner.gif'}/
 #request.section
-  %h2 バグ報告・機能追加のご依頼
+  %h2= t.to_file_a_bug_or_suggest_a_new_fueature
   .main
     %p
       %a{:href => 'http://help-me-hackers.com/'}
         %img{:alt => 'Help me, hackers!', :src => '/images/hmhs.jpg'}/
     %ol
-      %li
-        %a{:href => 'http://help-me-hackers.com/'}>Help me, hackers!
-        にバグ、要望を登録してください
-      %li 登録する際にオプションを開き、プロジェクトに「<a href="http://help-me-hackers.com/projects/3">Hamcutlet</a>」を選択
-      %li
-        %a{:href => 'http://github.com/komagata/hamcutlet'}>github
-        にもソースが置いてあるので、自分用にハムカツをカスタマイズすることも可能です。
-
+      %li= t.register_a_bug_or_request_in_help_me_hackers('http://help-me-hackers.com/')
+      %li= t.click_the_option_tab_and_choose_hamcutlet_when_you_register_a_project('http://help-me-hackers.com/projects/3')
 :javascript
     $(document).ready(function(){
         $.updnWatermark.attachAll();

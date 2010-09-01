@@ -1,13 +1,13 @@
 !!! XML
 !!!
-%html{:'xml:lang' => 'ja', :lang => 'ja'}
+%html
   %head
     %meta{:name => 'description', :content => ''}
     %meta{:name => 'keywords', :content => ''}
     %meta{'http-equiv' => 'Content-Type', 'content' => 'text/html; charset=utf-8'}
     %meta{'http-equiv' => 'Content-Style-Type', 'content' => 'text/css'}
     %meta{'http-equiv' => 'Content-Script-Type', 'content' => 'text/javascript'}
-    %title HTMLのインデントを綺麗にするサービス - Ham Cutlet
+    %title== #{t.makes_your_html_surce_beautifully_indneted} - Ham Cutlet
     %link{:href => 'style.css', :rel => 'stylesheet', :type => 'text/css'}
     %link{:rel => 'shortcut icon', :href => '/favicon.ico'}
     %script{:src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js', :type => 'text/javascript'}
@@ -15,7 +15,7 @@
   %body
     #header
       %h1 <a href="/">Ham Cutlet</a>
-      %h2 HTMLのインデントを綺麗にするサービス
+      %h2= t.makes_your_html_surce_beautifully_indneted
     = yield
     #footer
       %p.copyright
