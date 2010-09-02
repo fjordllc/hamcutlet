@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="text/css" http-equiv="Content-Style-Type" />
+    <meta content="text/javascript" http-equiv="Content-Script-Type" />
+    <title>HTMLのインデントを綺麗にするサービス - Ham Cutlet</title>
+
+    <link href="stylesheets/test.css" rel="stylesheet" type="text/css" />
+    <link href="/favicon.ico" rel="shortcut icon" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+    <script src="/javascript/jquery.updnWatermark.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="header">
+      <h1><a href="/">Ham Cutlet</a></h1>
+
+      <h2>HTMLのインデントを綺麗にするサービス</h2>
+    </div>
+    <div class="section" id="created">
+      <div class="error">
+        <h2></h2>
+        <p>HTMLタグを入力して下さい。</p>
+        <div class="to_top">
+          <a href="/">トップページに戻る</a>
+
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      //<![CDATA[
+        $(function(){
+          $('.source textarea').height($('.source pre').height())
+          $('button.raw').click(function(){
+            if ($('.source textarea').css('display') == 'none') {
+              $('button.raw').text('html')
+              $('.source textarea').fadeIn()
+              $('.source pre').hide()
+              $('.source textarea').focus().select()
+            } else {
+              $('button.raw').text('plane text')
+              $('.source textarea').hide()
+              $('.source pre').fadeIn()
+            }
+          })
+        })
+      //]]>
+    </script>
+    <div id="footer">
+      <p class="copyright">
+        Copyright &copy; <a href="http://fjord.jp">FJORD, LLC</a> Created by <a href="http://twitter.com/machida">@machida</a> and <a href="http://twitter.com/komagata">@komagata</a>
+
+      </p>
+    </div>
+    <script type="text/javascript">
+      //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-2927688-9']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      //]]>
+    </script>
+  </body>
+</html>
