@@ -7,7 +7,7 @@ div:after, ul:after, dl:after
   clear: both
   visibility: hidden
 
-*:first-child+html
+*:first-child + html
   div, ul, dl
     height: 1%
 
@@ -20,13 +20,13 @@ div, ul, dl
     height: 1px
 
 .clearfix
+  min-height: 1px
   &:after
     content: "."
     display: block
     clear: both
     height: 0
     visibility: hidden
-  min-height: 1px
 
 * html .clearfix
   height: 1px
@@ -38,22 +38,21 @@ body
   margin: 0
   overflow: visible
   padding: 0
-  font: 16px/1.5 HiraMaruPro-W4,'メイリオ',"Lucida Sans Unicode","Lucida Grande",Arial,Helvetica,"ヒラギノ丸ゴ Pro W4",HiraMaruPro-W4,Verdana,HiraMaruPro-W4,"ヒラギノ角ゴ Pro W3",HiraKakuPro-W3,Osaka,sans-serif
-  line-height: 1.7
+  font: 16px / 1.5 "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, "ヒラギノ丸ゴ Pro W4", HiraMaruPro-W4, "ヒラギノ角ゴ Pro W3", HiraKakuPro-W3, Osaka, sans-serif
 
 /* for IE7
 
-*+html body
-  font-size: 16px
-  line-height: 1.7
+*
+  + html body
+    font-size: 16px
+    line-height: 1.7
+  html body
+    font-size: 16px
+    line-height: 1.7
+    letter-spacing: 0.1em
+    font-family: "ＭＳ Ｐゴシック", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Osaka", "Lucida Grande", Arial, Helvetica, Verdana, "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", sans-serif
 
 /* for IE6
-
-* html body
-  font-size: 16px
-  line-height: 1.7
-  letter-spacing: 0.1em
-  font-family: 'ＭＳ Ｐゴシック', "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "Osaka", 'Lucida Grande', Arial, Helvetica, Verdana, 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', sans-serif
 
 /* --OTHER TAGS--
 
@@ -80,7 +79,7 @@ code, kbd, pre, samp, tt
 
 /* for IE7
 
-*+html code, kbd, pre, samp, tt
+* + html code, kbd, pre, samp, tt
   font-size: 108%
 
 h1, h2, h3, h4, h5, h6
@@ -101,7 +100,7 @@ ol, ul
 
 q
   &:before, &:after
-    content: ''
+    content: ""
 
 /* tables still need 'cellspacing="0"'
 
@@ -115,7 +114,7 @@ a
   &:link, &:visited
     color: #01165d
   &:hover, &:active
-    color: #9E2526 !important
+    color: #9e2526 !important
 
 .design, .design_a a
   background-repeat: no-repeat
@@ -133,7 +132,6 @@ a
   display: none
   visibility: hidden
 
-
 img
   -ms-interpolation-mode: bicubic
 
@@ -146,36 +144,42 @@ body
 
 div
   &#header
-    background-image: url(/images/header.gif)
+    background-image: url(../images/header.gif)
     height: 110px
     background-repeat: no-repeat
-    h1
-      a
-        display: block
-        float: left
-        width: 540px
-        height: 100px
-        text-indent: -9999px
+    h1 a
+      display: block
+      float: left
+      width: 540px
+      height: 100px
+      text-indent: -9999px
     h2
       display: block
       float: right
-      height: 100px
+      height: 25px
       width: 340px
-      line-height: 100px
-      font-size: 16px
+      line-height: 25px
+      font-size: 14px
       font-weight: bold
-      color: #fff
+      color: white
+      padding-top: 25px
   &.section
     padding-bottom: 35px
     h2
       height: 20px
       background-repeat: no-repeat
-      text-indent: -9999px
       margin-bottom: 15px
   &#form
     h2
-      background-image: url(/images/form_h2.gif)
+      background-image: url(../images/down_arrow)
       height: 20px
+      background-repeat: no-repeat
+      background-position: left center
+      line-height: 20px
+      color: #FFF
+      display: block
+      padding-left: 20px
+      margin-left: 20px
     span.updnWatermark
       position: relative
       width: 0
@@ -187,7 +191,7 @@ div
         left: 1em
         top: 0.9em
         white-space: nowrap
-        color: #999
+        color: #999999
         padding-left: 4px
         height: 1.25em
         vertical-align: middle
@@ -213,7 +217,7 @@ div
         display: block
         margin-right: auto
         margin-left: auto
-        background-image: url(/images/submit_button.jpg)
+        background-image: url(../images/submit_button.jpg)
         text-indent: -9999px
         overflow: hidden
         &:link, &:visited
@@ -221,14 +225,18 @@ div
         &:hover, &:active
           background-position: 0px -130px
   &#about
-    h2
-      background-image: url(/images/about_h2.gif)
-      height: 20px
-      margin-bottom: 15px
     float: left
     width: 420px
+    h2
+      background-image: url(../images/hum_title.gif)
+      height: 20px
+      margin-bottom: 15px
+      background-repeat: no-repeat
+      color: #FFF
+      padding-left: 35px
+      margin-left: 10px
     div.main
-      background-color: #FFFFFF
+      background-color: white
       padding: 20px
       float: left
       -webkit-border-radius: 20px
@@ -243,14 +251,18 @@ div
         &:last-child
           margin-bottom: 0px
   &#request
-    h2
-      background-image: url(/images/request_h2.gif)
-      height: 20px
-      margin-bottom: 15px
     float: left
     width: 420px
+    h2
+      background-image: url(../images/hum_title.gif)
+      height: 20px
+      margin-bottom: 15px
+      background-repeat: no-repeat
+      color: #FFF
+      padding-left: 35px
+      margin-left: 10px
     div.main
-      background-color: #FFFFFF
+      background-color: white
       padding: 20px
       float: left
       -webkit-border-radius: 20px
@@ -258,9 +270,9 @@ div
       border-radius: 20px
       a
         &:link img, &:visited img
-          border: 10px solid #CCCCCC
+          border: 10px solid #cccccc
         &:hover img, &:active img
-          border: 10px solid #8FD833
+          border: 10px solid #8fd833
       img
         margin-bottom: 20px
         margin-top: 5px
@@ -274,11 +286,15 @@ div
           margin-bottom: 0px
   &#made_with
     float: right
-    width: 460px
+    width: 440px
     h2
-      background-image: url(/images/made_with_h2.gif)
+      background-image: url(../images/hum_title.gif)
       height: 20px
       margin-bottom: 15px
+      background-repeat: no-repeat
+      color: #FFF
+      padding-left: 35px
+      margin-left: 10px
     ul li
       margin-bottom: 10px
       text-align: right
@@ -286,9 +302,9 @@ div
         margin-bottom: 0px
     a
       &:link img, &:visited img
-        border: 10px solid #CCCCCC
+        border: 10px solid #cccccc
       &:hover img, &:active img
-        border: 10px solid #8FD833
+        border: 10px solid #8fd833
   &#footer
     clear: both
     padding-top: 25px
@@ -296,67 +312,94 @@ div
   &#created
     h2
       height: 20px
-      display: block
+      display: none
       float: right
       margin-top: 10px
     button.raw
       margin-left: 10px
       margin-right: 15px
       width: 281px
-      height: 37px
+      height: 35px
       border: 0
-      text-indent: -9999px
       cursor: pointer
       background-image: url(../images/button.gif)
       background-repeat: no-repeat
       background-position: 0 0
       margin-bottom: 10px
       float: left
-    div.error
-      h2
-        background-image: url(/images/error_h2.gif)
-        height: 20px
-    div.source 
-      background-color: #FFFFFF
-      -webkit-border-radius: 20px
-      -moz-border-radius: 20px
-      border-radius: 20px
-      padding: 20px
+      background-color: #9DD8CE
       display: block
-      clear: both
-      textarea
-        width: 100%
-        font-size: 13px
-      pre
+      color: #FFF
+      font-size: 18px
+      line-height: 35px
+      text-align: center
+      padding-left: 40px
+      padding-bottom: 2px
+      padding-right: 20px
+    div
+      &.error h2
+        background-image: url(../images/error_h2.gif)
+        height: 20px
+      &.source
+        background-color: white
+        -webkit-border-radius: 20px
+        -moz-border-radius: 20px
+        border-radius: 20px
+        padding: 20px
         display: block
-        background-image: url(../images/pre_code.gif)
-        padding-left: 27px
-        background-color: #F8F8FF
-        margin-bottom: 0px
-        padding-bottom: 0px
-        overflow: hidden
-        code
-          display: block
+        clear: both
+        textarea
+          width: 100%
           font-size: 13px
-          line-height: 20px
-          width: 833px
-          overflow: auto
+        pre
+          display: block
+          background-image: url(../images/pre_code.gif)
+          padding-left: 27px
+          background-color: #f8f8ff
           margin-bottom: 0px
           padding-bottom: 0px
+          overflow: hidden
+          code
+            display: block
+            font-size: 13px
+            line-height: 20px
+            width: 833px
+            overflow: auto
+            margin-bottom: 0px
+            padding-bottom: 0px
 
-* html *
-  background-color: #9dd8ce !important
-  background-image: none !important
-  border: none !important
-  display: none !important
-
-* html body
-  text-indent: 0px !important
-  background-repeat: no-repeat
-  background-position: center center
-  background-image: url(../images/error.jpg) !important
-  display: block !important
+* html
+  *
+    background-color: #9dd8ce !important
+    background-image: none !important
+    border: none !important
+    display: none !important
+  body
+    text-indent: 0px !important
+    background-repeat: no-repeat
+    background-position: center center
+    background-image: url(../images/error.jpg) !important
+    display: block !important
 
 #tweet_button
-  :float left
-  :margin-top 9px
+  float: left
+  margin-top: 9px
+
+div.error
+  p
+    display: block
+    width: 300px
+    margin-right: auto
+    margin-left: auto
+    text-align: center
+    color: #FFF
+    background-color: #72b9ad
+    padding-top: 5px
+    padding-bottom: 5px
+    -webkit-border-radius: 6px
+    -moz-border-radius: 6px
+    border-radius: 6px
+    margin-top: 25px
+  .to_top
+    text-align: center
+    padding-top: 35px

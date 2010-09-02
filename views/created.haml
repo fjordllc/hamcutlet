@@ -7,9 +7,9 @@
         %a{:href => '/'}= t.back_to_top
   - else
     %h2= t.beautiful_html_was_made
-    %button.raw Plane Text
+    %button.raw= t.select_a_html
     #tweet_button
-      %a{:href => "http://twitter.com/share", :class => "twitter-share-button", :'data-count' => "horizontal", :'data-via' => "komagata", :'data-related' => "machida:designer", :'data-lang' => "ja"} Tweet
+      %a{:href => "http://twitter.com/share", :class => "twitter-share-button", :'data-count' => "horizontal", :'data-via' => "komagata", :'data-related' => "machida:designer", :'data-lang' => r18n.locale.code} Tweet
       %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
     .source
       %textarea{:style => 'display:none'}~h @html
@@ -20,12 +20,10 @@
     $('.source textarea').height($('.source pre').height())
     $('button.raw').click(function(){
       if ($('.source textarea').css('display') == 'none') {
-        $('button.raw').text('html')
         $('.source textarea').fadeIn()
         $('.source pre').hide()
         $('.source textarea').focus().select()
       } else {
-        $('button.raw').text('plane text')
         $('.source textarea').hide()
         $('.source pre').fadeIn()
       }

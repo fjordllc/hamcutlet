@@ -14,3 +14,4 @@ hamcutlet_is_using_haml: Ham CutletはHamlを使っています。
 html_has_some_problems: HTMLに問題あります。
 back_to_top: トップページに戻る
 beautiful_html_was_made: インデントの美しいHTMLが出来ました。
+select_a_html: HTMLを選択
