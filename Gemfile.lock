@@ -1,6 +1,8 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    daemons (1.1.0)
+    eventmachine (0.12.10)
     exceptional (2.0.15)
     haml (3.0.6)
     hpricot (0.8.2)
@@ -14,6 +16,10 @@ GEM
       rack (>= 1.0)
     sinatra-r18n (0.4.7.1)
       r18n-core (= 0.4.7.1)
+    thin (1.2.7)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
 
 PLATFORMS
   ruby
@@ -27,3 +33,4 @@ DEPENDENCIES
   rack-flash (= 0.1.1)
   sinatra (= 1.0.0)
   sinatra-r18n
+  thin

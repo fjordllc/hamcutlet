@@ -1,0 +1,11 @@
+= Ham Cutlet
+
+Makes your HTML source beautifully indented.
+
+== INSTALLATION
+
+  $ gem install bundler
+  $ bundle
+  $ bundle exec rackup
+
+Access to http://localhost:9292/

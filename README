@@ -1,9 +1,0 @@
-= Ham Cutlet
-
-== INSTALLATION
-
-    % gem install bundler --pre
-    % bundle install
-    % rackup
-
-Access to http://localhost:9292/
