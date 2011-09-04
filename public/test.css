@@ -420,3 +420,6 @@ div#created div.source pre code {
   float: left;
   margin-top: 9px;
 }
+.kowabana {
+  display: none;
+}
