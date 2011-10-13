@@ -1,15 +1,15 @@
-= Ham Cutlet
+# Ham Cutlet
 
 Makes your HTML source beautifully indented.
 
-== INSTALLATION
+## INSTALLATION
 
     $ bundle
     $ bundle exec rackup
 
 Access to http://localhost:9292/
 
-== Copyright
+## Copyright
 
 MIT LICENSE
 
