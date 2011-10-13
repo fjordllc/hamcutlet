@@ -1,10 +1,9 @@
-source :gemcutter
-gem 'json', '1.4.3'
+source :rubygems
+gem 'json', '1.6.1'
 gem 'hpricot', '0.8.2'
-gem 'haml', '3.0.6'
-gem 'sinatra', '1.0.0'
+gem 'haml', '3.1.3'
+gem 'sass'
+gem 'sinatra', '1.3.1'
+gem 'sinatra-contrib', '1.3.1'
 gem 'sinatra-r18n'
-gem 'i18n'
-gem 'rack-flash', '0.1.1'
-gem 'exceptional', '2.0.15'
-gem 'thin'
+gem 'rack-flash', '0.1.2'

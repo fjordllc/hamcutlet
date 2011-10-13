@@ -2,3 +2,4 @@
 relock
 log/*.log
 bundle
+.sass-cache

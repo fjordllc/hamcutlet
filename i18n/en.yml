@@ -2,7 +2,7 @@ required_html_tags: HTML Tags required.
 invalid_doctype: Invalid DOCTYPE.
 makes_your_html_surce_beautifully_indneted: Makes your HTML source beautifully indented
 paste_your_mess_html_source_here: paste your mess HTML source here
-paste_here: "&lt;p&gt;paste here&lt;/p&gt;"
+paste_here: <p>paste here</p>
 usage: Usage
 copy_a_html_document_and_paste_it_here: Copy a HTML document and paste it here.
 click_the_cook_tab: Click the "COOK!" tab.
@@ -16,3 +16,5 @@ back_to_top: Back to Home
 beautiful_html_was_made: Beautiful AAA was made.
 select_a_html: Select a HTML
 chrome_extension_for_hamcutlet: Chrome Extension for Ham Cutlet
+many_horror_stories_available: 17,000 over horror stories available
+kowabana: kowabana

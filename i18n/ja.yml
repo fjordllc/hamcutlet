@@ -2,7 +2,7 @@ required_html_tags: HTMLタグを入力して下さい。
 invalid_doctype: DOCTYPEが不正です。
 makes_your_html_surce_beautifully_indneted: HTMLのインデントを綺麗にするサービス
 paste_your_mess_html_source_here: ここにインデントを綺麗にそろえたいHTMLをコピペ
-paste_here: "&lt;p&gt;ここにHTMLをコピペ&lt;/p&gt;"
+paste_here: <p>ここにHTMLをコピペ</p>
 usage: Ham Cutletの使い方
 copy_a_html_document_and_paste_it_here: ここにHTMLをコピペします。
 click_the_cook_tab: コピペしたら「COOK!」をクリック。
@@ -16,3 +16,5 @@ back_to_top: トップページに戻る
 beautiful_html_was_made: インデントの美しいHTMLが出来ました。
 select_a_html: HTMLを選択
 chrome_extension_for_hamcutlet: ハムカツChrome Extension もあります
+many_horror_stories_available: スマホで17,000話以上の怖い話が読める
+kowabana: 怖話

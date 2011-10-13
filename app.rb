@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 require 'sinatra'
+require 'sinatra/reloader'
 require 'sinatra/r18n'
 require 'rack-flash'
 require 'haml/html'
 require 'sass'
-require 'exceptional'
-require 'haml_ext'
+require './haml_ext'
 require 'open-uri'
 require 'hpricot'
 require 'nkf'
@@ -15,13 +15,16 @@ class App < Sinatra::Base
     use Rack::Session::Cookie
     use Rack::Flash
     use Rack::Static, :urls => ['/images'], :root => 'public'
-    use Rack::Exceptional, ENV['EXCEPTIONAL_API_KEY'] || 'key'
     set :app_file, __FILE__
     set :haml, {:attr_wrapper => '"', :ugly => false}
     set :sass, {:style => :expanded}
     set :raise_errors, true
 
     register Sinatra::R18n
+  end
+
+  configure :development do
+    register Sinatra::Reloader
   end
 
   helpers do
@@ -68,7 +71,7 @@ class App < Sinatra::Base
 
   get '/*.css' do |path|
     content_type 'text/css'
-    sass path.to_sym, :sass => {:load_paths => [options.views]}
+    sass path.to_sym, :sass => {:load_paths => [settings.views]}
   end
 
   private
