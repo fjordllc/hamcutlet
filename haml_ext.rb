@@ -23,7 +23,7 @@ class Hpricot::Elem
       else
         CGI.unescapeHTML(self.innerText)
       end
-      
+
     content = erb_to_interpolation(content, options)
     content.gsub!(/\A\s*\n(\s*)/, '\1')
     original_indent = content[/\A(\s*)/, 1]

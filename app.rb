@@ -10,6 +10,8 @@ require 'open-uri'
 require 'hpricot'
 require 'nkf'
 
+Encoding.default_external = 'utf-8'
+
 class App < Sinatra::Base
   configure do
     use Rack::Session::Cookie
@@ -19,7 +21,6 @@ class App < Sinatra::Base
     set :haml, {:attr_wrapper => '"', :ugly => false}
     set :sass, {:style => :expanded}
     set :raise_errors, true
-
     register Sinatra::R18n
   end
 
@@ -78,6 +79,6 @@ class App < Sinatra::Base
   def html2haml(html)
     html5 = (doctype = Hpricot(html).children.detect{ |e| e.doctype? }) ? doctype.public_id.nil? : false
     haml = Haml::HTML.new(html.gsub(/\t/, '    ')).render
-    Haml::Engine.new(haml, :attr_wrapper => '"', :format => html5 ? :html5 : :xhtml ).render
+    Haml::Engine.new(haml, :attr_wrapper => '"', :format => html5 ? :html5 : :xhtml).render
   end
 end
