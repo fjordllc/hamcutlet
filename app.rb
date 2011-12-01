@@ -36,7 +36,8 @@ class App < Sinatra::Base
     if params[:url]
       content_type 'text/plain', :charset => 'utf-8'
       begin
-        source = NKF.nkf('-w', open(params[:url]){|f| f.read })
+        ua = request.user_agent || "Ruby/#{RUBY_VERSION}"
+        source = NKF.nkf('-w', open(params[:url], "User-Agent" => ua){|f| f.read })
         html2haml(source)
       rescue Haml::SyntaxError => e
         case e.message
