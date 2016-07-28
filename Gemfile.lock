@@ -1,51 +1,57 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    backports (2.3.0)
-    daemons (1.1.4)
-    eventmachine (0.12.10)
+    backports (3.6.8)
+    daemons (1.2.3)
+    eventmachine (1.2.0.1)
     haml (3.1.3)
     hpricot (0.8.4)
-    json (1.6.1)
-    r18n-core (0.4.11)
-    rack (1.3.4)
-    rack-flash (0.1.2)
+    json (2.0.2)
+    multi_json (1.12.1)
+    r18n-core (2.1.4)
+    rack (1.6.4)
+    rack-flash3 (1.0.5)
       rack
-    rack-protection (1.1.4)
+    rack-protection (1.5.3)
       rack
-    rack-test (0.6.1)
+    rack-test (0.6.3)
       rack (>= 1.0)
-    sass (3.1.10)
-    sinatra (1.3.1)
-      rack (~> 1.3, >= 1.3.4)
-      rack-protection (~> 1.1, >= 1.1.2)
-      tilt (~> 1.3, >= 1.3.3)
-    sinatra-contrib (1.3.1)
+    sass (3.4.22)
+    sinatra (1.4.7)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    sinatra-contrib (1.4.7)
       backports (>= 2.0)
-      eventmachine
+      multi_json
       rack-protection
       rack-test
-      sinatra (~> 1.3.0)
-      tilt (~> 1.3)
-    sinatra-r18n (0.4.11)
-      r18n-core (= 0.4.11)
+      sinatra (~> 1.4.0)
+      tilt (>= 1.3, < 3)
+    sinatra-r18n (2.1.4)
+      r18n-core (= 2.1.4)
       sinatra (>= 1.3)
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
-    tilt (1.3.3)
+    tilt (2.0.5)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  eventmachine
   haml (= 3.1.3)
   hpricot (= 0.8.4)
-  json (= 1.6.1)
-  rack-flash (= 0.1.2)
-  sass (= 3.1.10)
-  sinatra (= 1.3.1)
-  sinatra-contrib (= 1.3.1)
-  sinatra-r18n (= 0.4.11)
+  json
+  rack
+  rack-flash3
+  sass
+  sinatra
+  sinatra-contrib
+  sinatra-r18n
   thin (= 1.2.11)
+
+BUNDLED WITH
+   1.12.5
