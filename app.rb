@@ -4,11 +4,14 @@ require 'sinatra/reloader'
 require 'sinatra/r18n'
 require 'rack-flash'
 require 'haml/html'
-require 'sass'
 require './haml_ext'
 require 'open-uri'
 require 'hpricot'
 require 'nkf'
+require 'sprockets'
+require 'oulu'
+require 'uglifier'
+require 'autoprefixer-rails'
 
 Encoding.default_external = 'utf-8'
 
@@ -19,10 +22,23 @@ class App < Sinatra::Base
     use Rack::Static, :urls => ['/images'], :root => 'public'
     set :app_file, __FILE__
     set :haml, {:attr_wrapper => '"', :ugly => false}
-    set :sass, {:style => :expanded}
     set :raise_errors, true
     register Sinatra::R18n
   end
+
+  configure do
+    Oulu.load_paths.each do |path|
+      assets.append_path(path)
+    end
+  end
+
+  assets = Sprockets::Environment.new do |env|
+    # This ensures sprockets can find the CSS files
+    env.append_path "assets/stylesheets/"
+    env.append_path "assets/javascripts/"
+  end
+
+  AutoprefixerRails.install(assets)
 
   configure :development do
     register Sinatra::Reloader
@@ -30,6 +46,16 @@ class App < Sinatra::Base
 
   helpers do
     alias h escape_html
+  end
+
+  get '/assets/stylesheets/*' do
+    env["PATH_INFO"].sub!("/assets/stylesheets", "")
+    assets.call(env)
+  end
+
+  get '/assets/javascripts/*' do
+    env["PATH_INFO"].sub!("/assets/javascripts", "")
+    assets.call(env)
   end
 
   get '/' do
@@ -69,11 +95,6 @@ class App < Sinatra::Base
     end
 
     haml :created
-  end
-
-  get '/*.css' do |path|
-    content_type 'text/css'
-    sass path.to_sym, :sass => {:load_paths => [settings.views]}
   end
 
   private

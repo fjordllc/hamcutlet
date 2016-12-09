@@ -1,0 +1,178 @@
+.body
+  min-height: 100vh
+  background-color: $base-color
+
+.main
+  padding-left: $header-width
+  &.is-error
+    padding-left: 0
+    +size(100vw 100vh)
+
+.container
+  max-width: 100%
+
+.created
+  padding-top: 3.5rem
+
+// created-header
+
+.created-header
+  +position(fixed, left 0, right 0, top 0)
+  width: 100%
+  padding-left: $header-width
+
+.created-header__container
+  background-color: $reversal-text
+  height: 3.5rem
+  display: flex
+  justify-content: center
+  align-items: center
+  +position(relative)
+
+.created-header__back
+  +flex-link
+  +size(3rem 100%)
+  justify-content: center
+  align-items: center
+  +position(absolute, left 0, top 0)
+  +text-block(1.5rem 1)
+  transition: color .2s ease-in, background-color .2s ease-in
+  &:hover
+    color: #ff3022
+
+.created-header__title
+  +text-block(1.25rem 1.45, #a8a8a8)
+
+.created-header__get-raw-container
+  +position(absolute, right 1rem, top 0)
+  display: flex
+  align-items: center
+  height: 100%
+
+.created-header__get-raw
+  +text-block(.875rem 1.45, block $reversal-text 600)
+  background-color: $accent-color
+  padding: .5rem 1.25rem
+  border-radius: .25rem
+  cursor: pointer
+  &:hover
+    background-color: tint($accent-color, 20%)
+
+
+.header
+  +position(fixed, left 0, top 0, bottom 0, 1)
+  width: $header-width
+  background-color: $base-color
+  padding: 2.5rem
+
+.header__image-container
+  +margin(horizontal, auto)
+  margin-bottom: 1rem
+
+.header__title-link
+  +text-block(2.25rem 1.45 .25rem, center block $default-text 800)
+  +size(12.5rem auto)
+  +margin(horizontal, auto)
+  font-family: $basic-bold-sans-serif
+
+.header__sub-title
+  +text-block(.875rem 1.45, center 400 $default-text)
+
+.header__hgroup
+  margin-bottom: 1rem
+
+.header__ad
+  +size(250px 250px)
+  background-color: $accent-color
+
+.header__copyright
+  +position(absolute, left 0, right 0, bottom 0)
+  padding: .75rem
+  +text-block(.75rem 1.45, $default-text center)
+  a
+    color: $default-text
+
+.tools
+  margin-top: 2rem
+.tools__item
+  border-bottom: dotted .0625rem #c5c5b7
+  padding-bottom: .5rem
+  margin-bottom: .5rem
+.tools__item-link
+  +text-block(.75rem 1.45, flex)
+  align-items: center
+.tools__item-icon
+  +text-block(1.75rem 1, #abab9a)
+  margin-right: .5rem
+  &.is-github
+    font-size: 2.125rem
+.tools__item-label
+  +text-block(.75rem 1, block #787766 600)
+
+.input-source__form
+  height: 100vh
+.input-source__textarea
+  +size(100%)
+  background-color: #fffff7
+  padding: .5rem
+  padding-bottom: 5rem
+  +text-block(.8125rem 1.45)
+.input-source__submit-container
+  +position(fixed, left 0, bottom 0, right 0)
+  +padding(vertical, 1rem)
+  padding-left: $header-width
+.input-source__submit
+  +size(20rem 3rem)
+  +text-block(1rem, $reversal-text 600)
+  background-color: $accent-color
+  +block-link
+  +margin(horizontal, auto)
+  border-radius: .25rem
+  display: flex
+  align-items: center
+  justify-content: center
+  cursor: pointer
+  transition: color .2s ease-in, background-color .2s ease-in
+  &:hover
+    background-color: #ff3022
+
+.made-with__image
+  width: 8rem
+  display: block
+  +margin(horizontal, auto)
+
+.source
+  +text-block(.75rem)
+  background-color: #fffff7
+  .hljs-line-numbers
+    background-color: #dadada
+    text-align: right
+  .source__code
+    background-color: #242424
+    color: #12ff12
+
+.source__created-form
+  background-color: #242424
+  color: #12ff12
+  width: 100%
+  padding: .5rem
+  +text-block(.8125rem 1.45)
+
+.error
+  +size(21rem 21rem)
+  +position(absolute, left 50%, top 50%)
+  margin-top: -10.5rem
+  margin-left: -10.5rem
+
+.error__title
+  +text-block(1.5rem 1.45 .25rem, center)
+.error__image
+  +size(18rem auto)
+  display: block
+  +margin(horizontal, auto)
+  margin-bottom: 1rem
+
+.error__message
+  margin-bottom: 1rem
+  p
+    +text-block(1rem 1.6, center)

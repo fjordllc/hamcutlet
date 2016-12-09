@@ -1,24 +1,33 @@
-#created.section
-  - if flash[:error]
-    .error
-      %h2= t.haml_has_some_problem
-      %p= flash[:error]
-      .to_top
-        %a{:href => '/'}= t.back_to_top
-  - else
-    %h2= t.beautiful_html_was_made
-    %button.raw= t.select_a_html
-    #tweet_button
-      %a{:href => "http://twitter.com/share", :class => "twitter-share-button", :'data-count' => "horizontal", :'data-via' => "komagata", :'data-related' => "machida:designer", :'data-lang' => r18n.locale.code} Tweet
-      %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
+- if flash[:error]
+  .error
+    %img{alt: 'Haml', src: '/images/ham.png', class: 'error__image'}
+    %h2.error__title
+      = t.haml_has_some_problem
+    .error__message
+      %p
+        = flash[:error]
+    .error__back
+      %a{href: '/?=restart', class: 'error__back-link input-source__submit'}
+        = t.back_to_top
+- else
+  .created
+    %header.created-header
+      .created-header__container
+        %a.created-header__back{href: '/'}
+          %i.fa.fa-angle-left
+        %h2.created-header__title
+          = t.beautiful_html_was_made
+        .created-header__get-raw-container
+          %button.created-header__get-raw.js-raw
+            = t.select_a_html
     .source
-      %textarea{:style => 'display:none'}~h @html
-      %pre
-        %code=h @html
+      %textarea.source__created-form{style: 'display:none'}~h @html
+      %pre.source__pre
+        %code.hljs.source__code.html= h @html
 :javascript
   $(function(){
     $('.source textarea').height($('.source pre').height())
-    $('button.raw').click(function(){
+    $('button.js-raw').click(function(){
       if ($('.source textarea').css('display') == 'none') {
         $('.source textarea').fadeIn()
         $('.source pre').hide()
