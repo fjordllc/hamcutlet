@@ -1,46 +1,12 @@
-#form.section
-  %h2= t.paste_your_mess_html_source_here
-  %form{:name => 'pan', :id => 'pan', :action => '/', :method => 'post'}
-    %textarea{:name => 'source', :rows => 4, :cols => 40, :title => t.paste_here}
-    .submit
-      %a{:href => 'javascript:return void(0)', :onclick => "$('#pan').submit()"} COOK!
-#about.section
-  %h2= t.usage
-  .main
-    %ol
-      %li
-        %a{:href => '#form'}>
-          = t.copy_a_html_document_and_paste_it_here
-      %li= t.click_the_cook_tab
-      %li= t.get_a_beautified_html_document
-#made_with.section
-  %h2= t.hamcutlet_is_using_haml
-  %ul
-    %li
-      %a{:href => 'http://haml-lang.com/'}
-        %img{:alt => 'Haml', :src => '/images/haml_banner.gif'}/
-    %li
-      %a{:href => 'http://haml.ursm.jp/'}
-        %img{:alt => 'Haml', :src => '/images/nichi_haml_banner.gif'}/
-  %h2= t.chrome_extension_for_hamcutlet
-  %ul
-    %li
-      %a{:href => 'https://chrome.google.com/extensions/detail/ncaanpedogldlpcdhcjhnncihedgcndc'}
-        %img{:alt => 'Haml', :src => '/images/chrome_banner.gif'}/
-  %h2.kowabana= t.many_horror_stories_available
-  %ul.kowabana
-    %li
-      %a{:href => 'http://kowabana.jp/'}
-        %img{:alt => t.kowabana, :src => '/images/kowabana.gif'}/
-#request.section
-  %h2= t.to_file_a_bug_or_suggest_a_new_fueature
-  .main
-    %p
-      %a{:href => 'http://help-me-hackers.com/'}
-        %img{:alt => 'Help me, hackers!', :src => '/images/hmhs.jpg'}/
-    %ol
-      %li= t.register_a_bug_or_request_in_help_me_hackers('http://help-me-hackers.com/')
-      %li= t.click_the_option_tab_and_choose_hamcutlet_when_you_register_a_project('http://help-me-hackers.com/projects/3')
+.input-source
+  -# %h2= t.paste_your_mess_html_source_here
+  - break_code = "\n"
+  %form.input-source__form{name: 'pan', id: 'pan', action: '/', method: 'post'}
+    %textarea.input-source__textarea{name: 'source', placeholder: t.copy_a_html_document_and_paste_it_here + break_code + t.click_the_cook_tab  + break_code + t.get_a_beautified_html_document}
+    .input-source__submit-container
+      %a.input-source__submit{href: 'javascript:return void(0)', onclick: "$('#pan').submit()"}
+        インデントを綺麗に
+
 :javascript
     $(document).ready(function(){
         $.updnWatermark.attachAll();

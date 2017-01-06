@@ -1,20 +1,13 @@
+ham_cutlet: Ham Cutlet
 required_html_tags: HTML Tags required.
 invalid_doctype: Invalid DOCTYPE.
 makes_your_html_surce_beautifully_indneted: Makes your HTML source beautifully indented
 paste_your_mess_html_source_here: paste your mess HTML source here
 paste_here: <p>paste here</p>
-usage: Usage
 copy_a_html_document_and_paste_it_here: Copy a HTML document and paste it here.
 click_the_cook_tab: Click the "COOK!" tab.
 get_a_beautified_html_document: Get a beautified HTML document!
-to_file_a_bug_or_suggest_a_new_fueature: To file a bug or suggest a new feature.
-register_a_bug_or_request_in_help_me_hackers: Register a bug or request in <a href="%1">Help me, hackers!</a>
-click_the_option_tab_and_choose_hamcutlet_when_you_register_a_project: Click the option tab and choose "<a href="%1">Hamcutlet</a>" when you register a project.
-hamcutlet_is_using_haml: Ham Cutlet is using Haml
 html_has_some_problems: HTML has some problems.
-back_to_top: Back to Home
+back_to_top: Try again
 beautiful_html_was_made: Beautiful AAA was made.
 select_a_html: Select a HTML
-chrome_extension_for_hamcutlet: Chrome Extension for Ham Cutlet
-many_horror_stories_available: 17,000 over horror stories available
-kowabana: kowabana

@@ -1,20 +1,14 @@
+ham_cutlet: ハムカツ
 required_html_tags: HTMLタグを入力して下さい。
 invalid_doctype: DOCTYPEが不正です。
-makes_your_html_surce_beautifully_indneted: HTMLのインデントを綺麗にするサービス
+makes_your_html_surce_beautifully_indneted: HTMLのインデントを整える
 paste_your_mess_html_source_here: ここにインデントを綺麗にそろえたいHTMLをコピペ
 paste_here: <p>ここにHTMLをコピペ</p>
-usage: Ham Cutletの使い方
+haml_has_some_problem: エラー
 copy_a_html_document_and_paste_it_here: ここにHTMLをコピペします。
-click_the_cook_tab: コピペしたら「COOK!」をクリック。
+click_the_cook_tab: コピペしたら「インデントを綺麗に」をクリック。
 get_a_beautified_html_document: インデントが綺麗になったHTMLをゲット！
-to_file_a_bug_or_suggest_a_new_fueature: バグ報告・機能追加のご依頼
-register_a_bug_or_request_in_help_me_hackers: <a href="%1">Help me, hackers!</a>にバグ、要望を登録してください
-click_the_option_tab_and_choose_hamcutlet_when_you_register_a_project: 登録する際にオプションお開き、プロジェクトに「<a href="%1">Hamcutlet</a>」を選択。
-hamcutlet_is_using_haml: Ham CutletはHamlを使っています
 html_has_some_problems: HTMLに問題あります。
-back_to_top: トップページに戻る
+back_to_top: やり直す
 beautiful_html_was_made: インデントの美しいHTMLが出来ました。
 select_a_html: HTMLを選択
-chrome_extension_for_hamcutlet: ハムカツChrome Extension もあります
-many_horror_stories_available: スマホで17,000話以上の怖い話が読める
-kowabana: 怖話
