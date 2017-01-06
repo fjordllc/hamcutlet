@@ -76,7 +76,7 @@
   font-family: $basic-bold-sans-serif
 
 .header__sub-title
-  +text-block(.875rem 1.45, center 400 $default-text)
+  +text-block(.75rem 1.45, center 400 $default-text)
 
 .header__hgroup
   margin-bottom: 1rem
@@ -93,34 +93,49 @@
     color: $default-text
 
 .tools
-  margin-top: 2rem
+  +margin(vertical, 2rem)
+
 .tools__item
   border-bottom: dotted .0625rem #c5c5b7
-  padding-bottom: .5rem
-  margin-bottom: .5rem
+
 .tools__item-link
   +text-block(.75rem 1.45, flex)
   align-items: center
+  padding: .5rem
+  transition: color .2s ease-in, background-color .2s ease-in
+  &:hover
+    background-color: #f1f1cd
+    .tools__item-icon
+      color: #afaf9a
+    .tools__item-label
+      color: #717055
+
 .tools__item-icon
-  +text-block(1.75rem 1, #abab9a)
+  +text-block(1.75rem 1, #c3c3b4)
   margin-right: .5rem
+  transition: color .2s ease-in
   &.is-github
     font-size: 2.125rem
+
 .tools__item-label
-  +text-block(.75rem 1, block #787766 600)
+  +text-block(.75rem 1, block #989786 600)
+  transition: color .2s ease-in
 
 .input-source__form
   height: 100vh
+
 .input-source__textarea
   +size(100%)
   background-color: #fffff7
   padding: .5rem
   padding-bottom: 5rem
   +text-block(.8125rem 1.45)
+
 .input-source__submit-container
   +position(fixed, left 0, bottom 0, right 0)
   +padding(vertical, 1rem)
   padding-left: $header-width
+
 .input-source__submit
   +size(20rem 3rem)
   +text-block(1rem, $reversal-text 600)
