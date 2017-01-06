@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     autoprefixer-rails (6.5.3.1)
       execjs
@@ -83,6 +83,9 @@ DEPENDENCIES
   sprockets-helpers
   thin (= 1.2.11)
   uglifier
+
+RUBY VERSION
+   ruby 2.3.3p222
 
 BUNDLED WITH
    1.13.6

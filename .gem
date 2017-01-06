@@ -1,3 +1,0 @@
-haml --version '3.0.6' --source 'gemcutter.org'
-rack
-sinatra

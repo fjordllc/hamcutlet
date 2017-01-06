@@ -1,4 +1,5 @@
-source :rubygems
+source "https://rubygems.org"
+ruby "2.3.3"
 gem 'json'
 gem 'hpricot', '0.8.4'
 gem 'haml', '3.1.3'
